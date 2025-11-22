@@ -67,7 +67,7 @@ const BookingPage = ({ propertyId, onClose }) => {
       <button
         type="submit"
         disabled={isLoading}
-        className="w-full bg-[#005555] text-white py-3 rounded-lg hover:bg-[#004444]"
+        className="w-full bg-amber-400 hover:bg-amber-500 text-pink-700 py-3 rounded-lg "
       >
         {isLoading ? "Booking..." : "Book Now"}
       </button>

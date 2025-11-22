@@ -70,3 +70,9 @@ button {
 .zoom-in {
   animation: zoomIn 0.8s ease-out forwards;
 }
+
+/* Remove horizontal scrollbar globally */
+html, body {
+  overflow-x: hidden !important;
+}
+

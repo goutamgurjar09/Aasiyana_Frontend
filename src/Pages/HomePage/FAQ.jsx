@@ -1,8 +1,22 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 function FAQ() {
   const [activeIndex, setActiveIndex] = useState(null);
+const location = useLocation();
 
+useEffect(() => {
+  if (location.state?.scrollTo) {
+    const element = document.getElementById(location.state.scrollTo);
+    if (element) {
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 200); // small delay for UI to load
+    }
+  }
+}, [location]);
+  
   const faqs = [
     {
       question: "What are the key features of this property?",
@@ -41,13 +55,14 @@ function FAQ() {
   };
 
   return (
-    <div className="bg-gray-100 py-12 px-6 sm:px-12">
+    <div className="bg-gray-100 py-12 px-6 sm:px-12"
+    id="FAQSection">
       <div className="max-w-7xl mx-auto w-full uppercase">
        
         <div className="flex justify-center">
-          <h2 className="text-4xl font-bold text-center text-[#005555] font-serif mb-12 relative">
+          <h2 className="text-4xl font-bold text-center text-black font-serif mb-12 relative">
             Frequently Asked Questions
-            <span className="block w-96 h-1 bg-[#005555] mt-2 mx-auto rounded-full"></span>
+            <span className="block w-96 h-1 bg-amber-400 mt-2 mx-auto rounded-full"></span>
           </h2>
         </div>
 
@@ -58,7 +73,7 @@ function FAQ() {
               className={`shadow-md rounded-xl overflow-hidden transition-all duration-300 ${faq.bgColor}`}
             >
               <div
-                className="w-full text-left p-6  bg-[white]  text-[#005555] font-semibold focus:outline-none transition-colors duration-300"
+                className="w-full text-left p-6  bg-[white]  text-black font-semibold focus:outline-none transition-colors duration-300"
                 onClick={() => toggleAccordion(index)}
               >
                 <div className="flex justify-between items-center">

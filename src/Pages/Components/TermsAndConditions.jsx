@@ -2,11 +2,14 @@ import React from "react";
 
 const TermsAndConditions = () => {
   return (
-<div className="bg-gray-100 py-10 mt-18 mb-2 px-4 sm:px-8 lg:px-24 font-sans">
+    <div className="bg-gray-100 py-10 mt-10 mb-2 px-4 sm:px-8 lg:px-24 font-sans">
       <div className="p-6 sm:p-10">
-        <h1 className="text-2xl sm:text-4xl font-bold text-center text-[#005555] mb-14">
+       
+        <h1 className="text-3xl sm:text-4xl uppercase font-bold text-center text-black mb-3">
           Terms & Conditions
         </h1>
+
+        <div className="w-64 h-1 bg-amber-500 mx-auto mb-8"></div>
 
         <Section
           text="Welcome to "
@@ -66,22 +69,28 @@ const TermsAndConditions = () => {
   );
 };
 
-const Section = ({ text, highlight, end }) => (
-  <p className="text-gray-700 text-base leading-relaxed mb-6">
-    {text}
-    <strong className="text-[#005555]">{highlight}</strong>
-    {end && " " + end}
-  </p>
-);
+
+const Section = ({ text = "", highlight = "", end = "" }) => {
+  return (
+    <p className="text-pink-700 text-lg leading-relaxed mb-6 text-center mx-auto max-w-2xl font-bold">
+      {text}
+
+      {highlight && <strong className="text-amber-500"> {highlight}</strong>}
+
+      {end && ` ${end}`}
+    </p>
+  );
+};
+
 
 const SubSection = ({ title, text, highlight, end }) => (
   <div className="mb-8">
-    <h2 className="text-xl sm:text-2xl font-bold text-[#005555] mb-3">{title}</h2>
-    <p className="text-gray-700 text-base leading-relaxed">
+    <h2 className="text-xl sm:text-2xl font-bold text-amber-500 mb-3">{title}</h2>
+    <p className="text-black text-base leading-relaxed">
       {text}
       {highlight && (
         <>
-          <strong className="text-[#005555]">{highlight}</strong>
+          <strong className="text-pink-700">{highlight}</strong>
           {end && " " + end}
         </>
       )}

@@ -107,8 +107,8 @@ export default function PropertyDetails() {
             </div>
 
             <aside className="bg-white p-6 rounded-lg shadow">
-              <div className="text-3xl font-extrabold text-gray-900">₹{fmt(property.price)}</div>
-              <div className="mt-2 text-sm text-gray-600">{property.listingType} • {property.propertyType}</div>
+              <div className="text-3xl font-extrabold text-black">₹{fmt(property.price)}</div>
+              <div className="mt-2 text-sm text-black">{property.listingType} • {property.propertyType}</div>
 
               <div className="mt-4 space-y-2 text-gray-700 text-sm">
                 <div><span className="font-medium">City:</span> {property.location?.cityId?.name ? `${property.location.cityId.name}, ${property.location.cityId.state}` : property.city || '—'}</div>
@@ -131,22 +131,7 @@ export default function PropertyDetails() {
             <h1 className="text-2xl font-bold mb-2">{property.title}</h1>
             <p className="text-sm text-gray-500 mb-4">{property.description || 'No description provided.'}</p>
 
-            {/* <section className="mb-6">
-              <h3 className="text-lg font-semibold mb-2">Details</h3>
-              <div className="grid grid-cols-2 gap-3 text-sm text-gray-700">
-                <div><span className="font-medium">Which Type:</span> {property.details?.whichType ?? '—'}</div>
-                <div><span className="font-medium">Villa Type:</span> {property.details?.villaType ?? '—'}</div>
-                <div><span className="font-medium">Plot Size:</span> {property.details?.plotSize ?? '—'}</div>
-                <div><span className="font-medium">Plot Number:</span> {property.details?.plotNumber ?? '—'}</div>
-                <div><span className="font-medium">Total Area:</span> {fmt(property.details?.totalArea)}</div>
-                <div><span className="font-medium">Built Up Area:</span> {fmt(property.details?.builtUpArea)}</div>
-                <div><span className="font-medium">Carpet Area:</span> {fmt(property.details?.carpetArea)}</div>
-                <div><span className="font-medium">Price / SqFt:</span> {fmt(property.details?.pricePerSqFt)}</div>
-                <div><span className="font-medium">Workspaces:</span> {property.details?.workspaces ?? '—'}</div>
-                <div><span className="font-medium">Meeting Rooms:</span> {property.details?.meetingRooms ?? '—'}</div>
-                <div><span className="font-medium">Floors:</span> {property.details?.floors ?? '—'}</div>
-              </div>
-            </section> */}
+            
             <section className="mb-6">
               <h3 className="text-lg font-semibold mb-2">Details</h3>
               <div className="grid grid-cols-2 gap-3 text-sm text-gray-700">
@@ -164,19 +149,7 @@ export default function PropertyDetails() {
               </div>
             </section>
 
-            {/* <section className="mb-6">
-              <h3 className="text-lg font-semibold mb-2">Features</h3>
-              <div className="grid grid-cols-2 gap-3 text-sm text-gray-700">
-                <div><span className="font-medium">Parking:</span> {property.features?.parking ? 'Yes' : 'No'}</div>
-                <div><span className="font-medium">Power Backup:</span> {property.features?.powerBackup ? 'Yes' : 'No'}</div>
-                <div><span className="font-medium">Lift:</span> {property.features?.lift ? 'Yes' : 'No'}</div>
-                <div><span className="font-medium">Security CCTV:</span> {property.features?.securityCCTV ? 'Yes' : 'No'}</div>
-                <div><span className="font-medium">Flooring Type:</span> {property.features?.flooringType ?? '—'}</div>
-                <div><span className="font-medium">Road Access:</span> {property.features?.roadAccess?.available ? `Yes (width ${fmt(property.features.roadAccess.widthFt)} ft)` : 'No'}</div>
-                <div><span className="font-medium">Legal Status:</span> {property.features?.legalStatus ?? '—'}</div>
-              </div>
-
-            </section> */}
+          
             <section className="mb-6">
               <h3 className="text-lg font-semibold mb-2">Features</h3>
               <div className="grid grid-cols-2 gap-3 text-sm text-gray-700">

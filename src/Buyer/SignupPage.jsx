@@ -5,6 +5,8 @@ import { useSignupMutation } from "../redux/features/authApi";
 import { showSuccess } from "../Alert";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { FaArrowLeft } from "react-icons/fa";
+
 import * as yup from "yup";
 
 const schema = yup.object().shape({
@@ -71,9 +73,17 @@ function SignupPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#e7e7e7] text-white p-4 relative mt-24">
+    <div className="flex min-h-screen items-center justify-center bg-[#e7e7e7] text-white p-4 relative">
+      <button
+             onClick={() => navigate("/")}
+             className="absolute bg-amber-400 text-pink-700 px-3 py-2 font-bold shadow-md flex items-center gap-2  z-50
+                  top-4 left-4 sm:top-6 sm:left-10 md:top-8 md:left-20"
+           >
+             <FaArrowLeft size={14} />
+             Back
+           </button>
       <div className="w-full max-w-xl bg-white text-[#005555] font-serif p-10 rounded-lg shadow-2xl border-gray-300 relative z-10">
-        <h2 className="text-center text-3xl font-semibold mb-6">
+        <h2 className="text-center text-amber-400 text-3xl font-semibold mb-6">
           Create Your Account
         </h2>
         <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
@@ -85,7 +95,7 @@ function SignupPage() {
               className="w-full bg-transparent p-2 outline-none placeholder-gray-500 text-gray-900"
             />
             {errors.fullname && (
-              <p className="text-red-600 text-sm">{errors.fullname.message}</p>
+              <p className="text-pink-700 text-sm">{errors.fullname.message}</p>
             )}
           </div>
 
@@ -97,7 +107,7 @@ function SignupPage() {
               className="w-full bg-transparent p-2 outline-none placeholder-gray-500 text-gray-900"
             />
             {errors.mobile && (
-              <p className="text-red-600 text-sm">{errors.mobile.message}</p>
+              <p className="text-pink-700 text-sm">{errors.mobile.message}</p>
             )}
           </div>
 
@@ -109,7 +119,7 @@ function SignupPage() {
               className="w-full bg-transparent p-2 outline-none placeholder-gray-500 text-gray-900"
             />
             {errors.email && (
-              <p className="text-red-600 text-sm">{errors.email.message}</p>
+              <p className="text-pink-700 text-sm">{errors.email.message}</p>
             )}
           </div>
 
@@ -127,7 +137,7 @@ function SignupPage() {
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </span>
             {errors.password && (
-              <p className="text-red-600 text-sm">{errors.password.message}</p>
+              <p className="text-pink-700 text-sm">{errors.password.message}</p>
             )}
           </div>
 
@@ -145,7 +155,7 @@ function SignupPage() {
               {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
             </span>
             {errors.confirmPassword && (
-              <p className="text-red-600 text-sm">
+              <p className="text-pink-700 text-sm">
                 {errors.confirmPassword.message}
               </p>
             )}
@@ -161,7 +171,7 @@ function SignupPage() {
               <option value="admin">Admin</option>
             </select>
             {errors.role && (
-              <p className="text-red-600 text-sm">{errors.role.message}</p>
+              <p className="text-pink-700 text-sm">{errors.role.message}</p>
             )}
           </div>
 
@@ -181,7 +191,7 @@ function SignupPage() {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="w-3/4 bg-[#005555] hover:bg-[#007777] py-2 my-4 rounded-full font-bold text-white transition duration-300"
+              className="w-3/4 bg-amber-400 hover:bg-amber-500 py-2 my-4 font-bold text-pink-700  transition duration-300"
               disabled={isLoading}
             >
               {isLoading ? "Signing Up..." : "Sign Up"}
@@ -189,9 +199,9 @@ function SignupPage() {
           </div>
         </form>
 
-        <p className="text-center text-sm mt-4">
+        <p className="text-center text-black text-sm mt-4">
           Already have an account?
-          <a href="/login" className="text-[#005555] hover:underline ml-1">
+          <a href="/login" className="text-[#005555] hover:underline ml-1 font-semibold">
             Log in
           </a>
         </p>

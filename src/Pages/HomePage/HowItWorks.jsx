@@ -29,7 +29,7 @@ const HowItWorks = () => {
     <section className="bg-white py-20 mb-8 px-6 sm:px-10 font-serif">
       <div className="max-w-7xl mx-auto text-center">
         <motion.h2
-          className="text-4xl font-serif font-bold text-[#005555] mb-4 uppercase"
+          className="text-4xl font-serif font-bold text-black mb-4 uppercase"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -37,12 +37,11 @@ const HowItWorks = () => {
         >
           How It Works
         </motion.h2>
-       
-          <span className="block w-44 h-[3px] bg-[#005555]  mx-auto"></span>
-       
+
+        <span className="block w-44 h-[3px] bg-amber-400 mx-auto"></span>
 
         <motion.p
-          className="text-[#112757] max-w-2xl mx-auto mb-12 mt-4"
+          className="text-pink-700 max-w-2xl mx-auto mb-12 mt-4"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
@@ -56,17 +55,16 @@ const HowItWorks = () => {
           {steps.map((step, index) => (
             <motion.div
               key={index}
-              className="bg-[#005555] p-8 rounded-2xl shadow-md hover:shadow-xl transition-all"
+              className="bg-blue-950 p-8 rounded-2xl shadow-md hover:bg-amber-400 hover:shadow-xl transition-all"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              viewport={{ once: false, amount: 0.3 }} // ✅ updated here
+              viewport={{ once: false, amount: 0.3 }}
             >
-              {/* {step.icon} */}
-              <div className="flex items-center justify-center mb-4 text-4xl text-[#005555]">
+              <div className="flex items-center justify-center mb-4 text-4xl text-pink-700">
                 {step.icon}
               </div>
-              <h3 className="text-xl font-semibold  text-white mb-2">
+              <h3 className="text-xl font-semibold text-white mb-2">
                 {step.title}
               </h3>
               <p className="text-white text-sm">{step.desc}</p>

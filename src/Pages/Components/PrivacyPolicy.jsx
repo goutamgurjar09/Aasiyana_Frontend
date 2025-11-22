@@ -2,15 +2,20 @@ import React from "react";
 
 const PrivacyPolicy = () => {
   return (
-<div className="bg-gray-100  py-10 mt-20 mb-2 px-4 sm:px-8 lg:px-24 font-sans">
+    <div className="bg-gray-100  py-10 mt-10 mb-2 px-4 sm:px-8 lg:px-24 font-sans">
       <div className="p-6 sm:p-10">
-        <h1 className="text-2xl sm:text-4xl font-bold text-center text-[#005555] mb-14">
+        <h1 className="text-3xl sm:text-4xl uppercase font-bold text-center text-black mb-4">
           Privacy Policy
         </h1>
+        <div className="w-64 h-1 bg-amber-400 mx-auto mb-8"></div>
 
-        {/* Section 1 */}
-        <p className="text-gray-700 text-base leading-relaxed mb-6">
-          At <strong className="text-[#005555]">OurRealEstateWebsite</strong>, we are committed to protecting your privacy. This Privacy Policy outlines how we collect, use, and safeguard your information when you interact with our website or services.
+        <p className="text-pink-700 text-base leading-relaxed mb-6 text-center max-w-3xl mx-auto font-bold">
+          At
+          <strong className="text-amber-500"> OurRealEstateWebsite</strong>, we
+          are committed to protecting your privacy.
+          <br />
+          This Privacy Policy outlines how we collect, use, and safeguard your
+          information when you interact with our website or services.
         </p>
 
         <Section
@@ -75,9 +80,9 @@ const PrivacyPolicy = () => {
 
 const Section = ({ title, items, description }) => (
   <div className="mb-8">
-    <h2 className="text-xl sm:text-2xl font-bold text-[#005555] mb-3">{title}</h2>
-    {description && <p className="text-gray-700 mb-2">{description}</p>}
-    <ul className="list-disc pl-5 space-y-1 text-gray-700 text-base">
+    <h2 className="text-xl sm:text-2xl font-bold text-amber-500 mb-3">{title}</h2>
+    {description && <p className="text-black mb-2">{description}</p>}
+    <ul className="list-disc pl-5 space-y-1 text-black text-base">
       {items.map((item, idx) => (
         <li key={idx}>{item}</li>
       ))}
@@ -87,10 +92,10 @@ const Section = ({ title, items, description }) => (
 
 const TextSection = ({ title, text, highlight }) => (
   <div className="mb-8">
-    <h2 className="text-xl sm:text-2xl font-bold text-[#005555] mb-3">{title}</h2>
-    <p className="text-gray-700 text-base leading-relaxed">
+    <h2 className="text-xl sm:text-2xl font-bold text-amber-500 mb-3">{title}</h2>
+    <p className="text-black text-base leading-relaxed">
       {text}
-      {highlight && <strong className="text-[#005555]">{highlight}</strong>}
+      {highlight && <strong className="text-pink-700">{highlight}</strong>}
     </p>
   </div>
 );

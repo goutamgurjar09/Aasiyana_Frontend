@@ -6,6 +6,7 @@ import {
   useGenerateOtpMutation,
   useResetPasswordMutation,
 } from "../../redux/features/authApi";
+import { FaArrowLeft } from "react-icons/fa";
 
 const ForgotPassword = () => {
   const [mobile, setMobile] = useState("");
@@ -66,14 +67,23 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-900 text-white p-4 relative">
-      <div className="absolute inset-0 bg-gray-900 bg-center blur-lg opacity-30"></div>
+    <div className="flex items-center justify-center min-h-screen bg-[#e7e7e7] text-white p-4 relative">
+
+       <button
+              onClick={() => navigate("/")}
+              className="absolute bg-amber-400 text-pink-700 px-3 py-2 font-bold shadow-md flex items-center gap-2  z-50
+                   top-4 left-4 sm:top-6 sm:left-10 md:top-8 md:left-20"
+            >
+              <FaArrowLeft size={14} />
+              Back
+            </button>
+      <div className="absolute inset-0 bg-center blur-lg opacity-30"></div>
 
       <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-xl border border-gray-300 relative z-10">
-        <h2 className="text-2xl font-semibold text-center text-gray-900">
+        <h2 className="text-2xl font-semibold text-center text-amber-500">
           Forgot Password
         </h2>
-        <p className="text-gray-900 text-center mt-2">
+        <p className="text-pink-700 text-center mt-2">
           Enter your mobile number to receive an OTP
         </p>
 
@@ -91,7 +101,7 @@ const ForgotPassword = () => {
 
           <button
             type="submit"
-            className="w-full mt-6 bg-gray-900 hover:bg-gray-700 text-white py-2 rounded-md transition"
+            className="w-full mt-6 bg-amber-400 hover:bg-amber-500 text-white py-2 rounded-md transition"
           >
             Send OTP
           </button>

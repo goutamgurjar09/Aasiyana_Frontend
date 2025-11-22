@@ -10,7 +10,7 @@ export default function ContactBtn({ phone, name }) {
     <div className="relative inline-block">
       <button
             onClick={() => window.open(whatsappUrl, "_blank")}
-        className="px-3 py-2 border rounded text-white bg-[#005555]"
+        className="px-3 py-2 border rounded  bg-amber-400 hover:bg-amber-500 font-bold transition text-pink-700"
       >
         Contact Now
       </button>

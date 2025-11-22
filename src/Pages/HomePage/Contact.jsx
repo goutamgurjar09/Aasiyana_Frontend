@@ -56,14 +56,14 @@ const Contact = () => {
   }, [isSuccess, isError]);
 
   return (
-    <div className="text-[#005555] py-12 px-10 md:px-32 mt-14">
+    <div className=" py-12 px-10 md:px-32 mt-16">
       <div className="max-w-8xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl uppercase font-bold font-serif mb-4">
+          <h2 className=" text-black text-4xl  uppercase font-bold font-serif mb-4">
             Get in Touch
           </h2>
-          <span className="block w-48 h-1 bg-[#005555] mt-2 mx-auto rounded-full"></span>
-          <p className="text-lg text-black mt-4">
+          <span className="block w-48 h-1 bg-amber-400 mt-2 mx-auto rounded-full"></span>
+          <p className="text-lg text-pink-600  mt-4">
             Send us a message and we will get back to you shortly.
           </p>
         </div>
@@ -138,7 +138,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-60 bg-[#005555] hover:bg-[#007777] transition-all duration-300 text-white py-3 font-semibold shadow-md"
+                  className="w-60 bg-amber-400 hover:bg-amber-500 transition-all duration-300 text-pink-700 py-3 font-bold shadow-md"
                 >
                   {isLoading ? "Submitting..." : "Submit"}
                 </button>

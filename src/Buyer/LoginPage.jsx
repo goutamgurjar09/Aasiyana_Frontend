@@ -10,6 +10,7 @@ import {
   useLoginMutation,
   useGoogleLoginMutation,
 } from "../redux/features/authApi";
+import { FaArrowLeft } from "react-icons/fa";
 
 const schema = yup.object().shape({
   email: yup.string().email("Invalid email").required("Email is required"),
@@ -108,13 +109,21 @@ function LoginPage() {
   };
 
   return (
+    <div className="flex min-h-screen items-center justify-center bg-[#e7e7e7] text-white p-4 relative">
+      <button
+        onClick={() => navigate("/")}
+        className="absolute bg-amber-400 hover:bg-amber-500 text-pink-700 px-3 py-2 font-bold shadow-md flex items-center gap-2  z-50
+             top-4 left-4 sm:top-6 sm:left-10 md:top-8 md:left-20"
+      >
+        <FaArrowLeft size={14} />
+        Back
+      </button>
 
-    <div className="flex min-h-screen items-center justify-center bg-[#005555] text-white p-4 relative mt-16">
       <div className="absolute inset-0 bg-[url('/path-to-your-image.jpg')] bg-cover bg-center blur-lg opacity-30"></div>
 
       <div className="w-full max-w-md bg-white p-0 rounded-lg shadow-xl border border-gray-300 relative z-10 overflow-hidden">
         <div className="p-8 mt-10">
-          <h2 className="text-center text-3xl font-serif font-semibold mb-6 text-[#005555]">
+          <h2 className="text-center text-3xl font-serif font-semibold mb-6 text-amber-400">
             Log In
           </h2>
 
@@ -134,7 +143,7 @@ function LoginPage() {
                 className="w-full p-3 border border-gray-500 rounded-lg shadow-sm outline-none focus:ring-2 focus:ring-[#005555] text-gray-800 placeholder-gray-500 transition"
               />
               {errors.email && (
-                <p className="text-red-500 text-sm mt-1">
+                <p className="text-pink-700 text-sm mt-1">
                   {errors.email.message}
                 </p>
               )}
@@ -161,7 +170,7 @@ function LoginPage() {
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </span>
               {errors.password && (
-                <p className="text-red-500 text-sm mt-1">
+                <p className="text-pink-700 text-sm mt-1">
                   {errors.password.message}
                 </p>
               )}
@@ -177,17 +186,20 @@ function LoginPage() {
             <div className="flex justify-center">
               <button
                 type="submit"
-                className="w-3/4 bg-[#005555] hover:bg-[#007777] py-2 mt-4 font-bold text-white transition duration-300 shadow-md"
+                className="w-3/4 bg-amber-400 hover:bg-amber-500 py-2 mt-4 font-bold text-pink-700   transition duration-300 shadow-md"
               >
                 LOGIN
               </button>
             </div>
           </form>
 
-          <p className="text-center text-sm mt-4 text-gray-600">
+          <p className="text-center text-sm mt-4 text-black">
             No account?
-            <Link to="/signup" className="text-[#005555] hover:underline ml-1">
-              Create One
+            <Link
+              to="/signup"
+              className="text-[#005555] hover:underline ml-1 font-semibold"
+            >
+              Sign up
             </Link>
           </p>
 

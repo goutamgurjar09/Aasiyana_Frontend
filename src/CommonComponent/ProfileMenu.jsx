@@ -73,7 +73,7 @@ const ProfileMenu = () => {
           </button>
           <button
             onClick={handleLogout}
-            className="w-full flex items-center px-4 py-2 hover:bg-gray-100 text-left text-sm text-red-600"
+            className="w-full flex items-center px-4 py-2 hover:bg-gray-100 text-left text-sm text-pink-600"
             disabled={logoutLoading}
           >
             <FaSignOutAlt className="mr-2" /> Logout

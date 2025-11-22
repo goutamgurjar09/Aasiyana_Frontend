@@ -15,7 +15,7 @@ export const InputField = ({
       className="block text-sm font-medium text-gray-700 mb-1"
       htmlFor={name}
     >
-      {label} {required && <span className="required: text-red-500">*</span>}
+      {label} {required && <span className="required: text-pink-700">*</span>}
     </label>
     <input
       type={type}
@@ -26,6 +26,6 @@ export const InputField = ({
       }`}
       {...rest}
     />
-    {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+    {error && <p className="text-pink-700 text-sm mt-1">{error}</p>}
   </div>
 );
