@@ -31,28 +31,24 @@ const Enquiries = () => {
     { header: "Name", accessor: "fullname" },
     { header: "Mobile", accessor: "mobile" },
     { header: "Email", accessor: "email" },
-    { header: "Message", accessor: "message", className: "max-w-xs" },
-    {
+    { header: "Message", accessor: "message", className: "max-w-xs" }
+  ];
+  // ❌ Seller ke liye Actions column mat add karo
+  if (user?.role !== "seller") {
+    columns.push({
       header: "Actions",
       render: (row) => (
         <div className="flex space-x-2">
           <button
-            className={`bg-red-100 text-red-500 hover:bg-rose-200 p-2 rounded-lg ${user?.role === "seller" ? "opacity-50 pointer-events-none" : ""
-              }`}
-            title={
-              user?.role === "seller"
-                ? "Seller can't delete enquiry"
-                : `Delete ${row.fullname}`
-            }
-            disabled={user?.role === "seller"}
+            className="bg-red-100 text-red-500 hover:bg-rose-200 p-2 rounded-lg"
             onClick={() => handleDelete(row._id)}
           >
             <FaTrash size={14} />
           </button>
         </div>
       ),
-    },
-  ];
+    });
+  }
 
   if (isError) {
     return <p className="text-center text-red-500">Error loading enquiries.</p>;

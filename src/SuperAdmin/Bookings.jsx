@@ -74,48 +74,49 @@ const Booking = () => {
     { header: "Mobile", accessor: "mobile" },
     { header: "Message", accessor: "message", className: "max-w-xs" },
 
-    {
-      header: "Status",
-      render: (row) => (
-        <select
-          value={row.status}
-          disabled={user?.role === "seller"}
-          onChange={(e) => handleStatusChange(row._id, e.target.value)}
-          className={`border rounded p-1 text-sm ${getStatusColor(row.status)} ${
-            user?.role === "seller" ? "cursor-not-allowed" : "cursor-pointer"
-          }`}
-        >
-          <option value="pending">Pending</option>
-          <option value="confirmed">Confirmed</option>
-          <option value="cancelled">Cancelled</option>
-        </select>
-      ),
-    },
-
-    {
-      header: "Actions",
-      render: (row) => (
-        <div className="flex space-x-3">
-          <button
-            onClick={() => navigate(`/propertyDetails/${row?.propertyId?._id}`)}
-            className="bg-emerald-100 text-emerald-600 hover:bg-emerald-200 p-2 rounded-lg"
-          >
-            <FaEye size={14} />
-          </button>
-
-          <button
-            disabled={user?.role === "seller"}
-            onClick={() => handleDelete(row._id)}
-            className={`bg-red-100 text-red-500 hover:bg-red-200 p-2 rounded-lg ${
-              user?.role === "seller" && "opacity-50 pointer-events-none"
-            }`}
-          >
-            <FaTrash size={14} />
-          </button>
-        </div>
-      ),
-    },
   ];
+  // ⛔ Status column hide if seller
+if (user?.role !== "seller") {
+  columns.push({
+    header: "Status",
+    render: (row) => (
+      <select
+        value={row.status}
+        onChange={(e) => handleStatusChange(row._id, e.target.value)}
+        className={`border rounded p-1 text-sm ${getStatusColor(row.status)}`}
+      >
+        <option value="pending">Pending</option>
+        <option value="confirmed">Confirmed</option>
+        <option value="cancelled">Cancelled</option>
+      </select>
+    ),
+  });
+}
+
+// Actions column always shown but delete button will hide
+columns.push({
+  header: "Actions",
+  render: (row) => (
+    <div className="flex space-x-3">
+      <button
+        onClick={() => navigate(`/propertyDetails/${row?.propertyId?._id}`)}
+        className="bg-emerald-100 text-emerald-600 hover:bg-emerald-200 p-2 rounded-lg"
+      >
+        <FaEye size={14} />
+      </button>
+
+      {/* ❌ Hide Delete button completely if seller */}
+      {user?.role !== "seller" && (
+        <button
+          onClick={() => handleDelete(row._id)}
+          className="bg-red-100 text-red-500 hover:bg-red-200 p-2 rounded-lg"
+        >
+          <FaTrash size={14} />
+        </button>
+      )}
+    </div>
+  ),
+});
 
   return (
     <main className="p-6 bg-gray-100 min-h-screen">

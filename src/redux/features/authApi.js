@@ -78,6 +78,13 @@ export const authApi = createApi({
         body: formData,
       }),
     }),
+    updateUser: builder.mutation({
+    query: ({id, formData}) => ({
+        url: `/users/${id}`,
+        method: "PATCH",
+        body: formData,
+      }),
+    }),
     logoutUser: builder.mutation({
       query: () => ({
         url: "/logout",
@@ -95,6 +102,7 @@ export const {
   useGoogleAuthMutation,
   useGetUsersQuery,
   useGetUserByIdQuery,
+  useUpdateUserMutation,
   useGoogleLoginMutation,
   useDeleteUserMutation,
   useUpdateUserRoleMutation,

@@ -15,10 +15,13 @@ const getInitials = (name) => {
 
 const Profile = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const userData = JSON.parse(localStorage.getItem("user"));
+const userData = JSON.parse(localStorage.getItem("user") || "{}");
 
-  // Fetch user data with RTK Query
-  const { data: user, isLoading, refetch } = useGetUserByIdQuery(userData?.userId);
+const userId = userData?.userId;
+
+const { data: user, isLoading, refetch } = useGetUserByIdQuery(userId, {
+  skip: !userId,  // IMPORTANT
+});
 
   return (
     <div className="flex min-h-screen overflow-hidden bg-gray-100">
@@ -68,14 +71,14 @@ const Profile = () => {
               </div>
             </div>
 
-            <div className="flex items-center justify-end mb-6">
+            {/* <div className="flex items-center justify-end mb-6">
               <button
                 className="px-4 py-2 bg-[#005555] text-white rounded-md hover:bg-[#007777] transition"
                 onClick={() => setIsModalOpen(true)}
               >
                 Update Profile
               </button>
-            </div>
+            </div> */}
           </div>
           <div className="space-y-6 text-gray-700 text-lg">
             <div className="flex items-center gap-3">

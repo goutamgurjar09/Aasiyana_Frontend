@@ -2,7 +2,6 @@ import { useState } from "react";
 import { FaEnvelope, FaPhone, FaShieldAlt } from "react-icons/fa";
 import ProfileUpdateForm from "../CommonComponent/ProfileUpdateForm";
 import Modal from "../CommonComponent/Modal";
-import { useSelector } from "react-redux";
 import { useGetUserByIdQuery } from "../redux/features/authApi";
 
 // Helper to get initials
@@ -14,10 +13,10 @@ const getInitials = (name) =>
 
 const Profile = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const userData = JSON.parse(localStorage.getItem("user") || "{}");
 
-  const { user: userData } = useSelector((state) => state.auth);
   const { data: user, isLoading, refetch } = useGetUserByIdQuery(userData?.userId);
-
+  console.log("User data:", user);
   return (
     <main className="p-8 bg-gray-100 min-h-screen">
       <div className="flex items-center justify-between mb-6">
@@ -32,26 +31,26 @@ const Profile = () => {
 
       <div className="w-full mx-auto bg-white shadow-lg rounded-xl p-6">
         <div className="flex items-center gap-6 mb-8">
-          {user?.profileImg ? (
+          {user?.data.profileImg ? (
             <img
-              src={user.profileImg}
+              src={user?.data.profileImg}
               alt="Profile"
               className="w-20 h-20 rounded-full object-cover"
             />
           ) : (
             <div className="w-20 h-20 rounded-full bg-gray-300 flex items-center justify-center text-4xl font-bold text-gray-700">
-              {getInitials(user?.fullname || "U")}
+              {getInitials(user?.data.fullname || "U")}
             </div>
           )}
 
           <div>
             <h2 className="text-2xl font-semibold text-gray-900">
-              {user?.fullname
-                ? user.fullname.charAt(0).toUpperCase() + user.fullname.slice(1)
+              {user?.data.fullname
+                ? user?.data.fullname.charAt(0).toUpperCase() + user?.data.fullname.slice(1)
                 : "User"}
             </h2>
             <span className="inline-block mt-2 px-4 py-1 text-sm bg-blue-100 text-blue-800 rounded-full">
-              {user?.role?.charAt(0).toUpperCase() + user?.role?.slice(1) || "User"}
+              {user?.data.role?.charAt(0).toUpperCase() + user?.data.role?.slice(1) || "User"}
             </span>
           </div>
         </div>
@@ -59,15 +58,15 @@ const Profile = () => {
         <div className="space-y-6 text-gray-700 text-lg">
           <div className="flex items-center gap-3">
             <FaEnvelope className="text-blue-500" />
-            <span>{user?.email || "Not available"}</span>
+            <span>{user?.data.email || "Not available"}</span>
           </div>
           <div className="flex items-center gap-3">
             <FaPhone className="text-green-500" />
-            <span>{user?.mobile || "Not available"}</span>
+            <span>{user?.data.mobile || "Not available"}</span>
           </div>
           <div className="flex items-center gap-3">
             <FaShieldAlt className="text-purple-500" />
-            <span>{user?.role?.charAt(0).toUpperCase() + user?.role?.slice(1) || "Not specified"}</span>
+            <span>{user?.data.role?.charAt(0).toUpperCase() + user?.data.role?.slice(1) || "Not specified"}</span>
           </div>
         </div>
       </div>

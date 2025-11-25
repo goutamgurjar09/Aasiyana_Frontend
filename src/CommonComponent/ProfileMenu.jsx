@@ -31,7 +31,7 @@ const ProfileMenu = () => {
 
   const goToProfile = () => {
     setOpen(false);
-    navigate(user?.role === "buyer" ? "/buyer-profile" : "/profile");
+    navigate(user?.role === "buyer" ? "/buyer-profile" : "/admin/profile");
   };
 
   // Close dropdown when clicked outside

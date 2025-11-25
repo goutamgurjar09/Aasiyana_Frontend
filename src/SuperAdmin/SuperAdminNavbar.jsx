@@ -10,8 +10,8 @@ const SuperAdminNavbar = ({ sidebarOpen, setSidebarOpen }) => {
   const name = localStorage.getItem("name") || "User";
 
   // Role-based Title
-  const panelTitle =
-    role === "superadmin" ? "Super Admin Panel" : "Admin Panel";
+  // const panelTitle =
+  //   role === "superadmin" ? "Super Admin Panel" : "Admin Panel";
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -31,7 +31,6 @@ const SuperAdminNavbar = ({ sidebarOpen, setSidebarOpen }) => {
           ☰
         </button>
 
-        <h1 className="text-2xl font-bold text-black ml-10">{panelTitle}</h1>
       </div>
 
       {/* Right: Profile */}
@@ -51,17 +50,10 @@ const SuperAdminNavbar = ({ sidebarOpen, setSidebarOpen }) => {
         {open && (
           <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg py-2 border">
             <button
-              onClick={() => navigate("/profile")}
+              onClick={() => navigate("/admin/profile")}
               className="block w-full text-left px-4 py-2 hover:bg-gray-100"
             >
               Profile
-            </button>
-
-            <button
-              onClick={() => navigate("/settings")}
-              className="block w-full text-left px-4 py-2 hover:bg-gray-100"
-            >
-              Setting
             </button>
 
             <button

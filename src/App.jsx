@@ -86,6 +86,7 @@ function App() {
           <Route path="/super/properties" element={<Properties />} />
           <Route path="/super/bookings" element={<Booking />} />
           <Route path="/super/enquiries" element={<Enquiries />} />
+          <Route path="/super/profile" element={<AdminProfile />} />
 
           {/* Admin Routes */}
           <Route path="/admin/dashboard" element={<SellerAdminDashboard />} />
@@ -103,9 +104,8 @@ function App() {
           <Route path="/seller/properties" element={<SellerProperties />} />
           <Route path="/seller/bookings" element={<Booking />} />
           <Route path="/seller/enquiries" element={<Enquiries />} />
+          <Route path="/seller/profile" element={<AdminProfile />} />
 
-          {/* Common for all logged-in roles */}
-          {/* <Route path="/profile" element={<AdminProfile />} /> */}
         </Route>
       </Routes>
     </Router>

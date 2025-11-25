@@ -9,7 +9,7 @@ const AdminLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(!isMobile);
 
   return (
-    <div className="flex min-h-screen overflow-hidden">
+    <div className="flex min-h-screen">
       {/* Sidebar (TOP + Always in front of navbar) */}
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 
@@ -24,7 +24,7 @@ const AdminLayout = () => {
 
       {/* Main Content */}
       <div
-        className={`flex-1 transition-all duration-300 pt-20 bg-white min-h-screen
+        className={`flex-1 transition-all duration-300 bg-white min-h-screen py-16
           ${sidebarOpen ? "ml-72" : "ml-0"}
         `}
       >
